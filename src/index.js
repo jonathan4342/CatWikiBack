@@ -35,7 +35,7 @@ app.get('/breeds', async (req, res) => {
             return {
                 id: e.id,
                 name: e.name,
-                temperamet: e.temperamet,
+                temperament: e.temperament,
                 origin: e.origin,
                 description: e.description,
                 lifeSpan: e.life_span,
@@ -73,7 +73,7 @@ app.get('/breeds/:name', async (req, res) => {
             return {
                 id: el.id,
                 name: el.name,
-                temperamet: el.temperamet,
+                temperament: el.temperament,
                 origin: el.origin,
                 description: el.description,
                 lifeSpan: el.life_span,
