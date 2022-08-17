@@ -107,9 +107,8 @@ app.get('/breedsImg/:id', async (req, res) => {
         } = await axios.get(`https://api.thecatapi.com/v1/images/search?breed_ids=${id}&limit=8`)
 
         const img = data.map(elemet => {
-            return {
-                img: elemet.url
-            }
+            return elemet.url
+            
         })
         res.json(img)
     } catch (error) {
