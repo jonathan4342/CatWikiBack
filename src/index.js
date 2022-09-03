@@ -47,7 +47,8 @@ app.get('/breeds', async (req, res) => {
                 intelligence: e.intelligence,
                 socialNeeds: e.social_needs,
                 strangerFriendly: e.stranger_friendly,
-                img: e.image ?.url
+                img: e.image?.url,
+                number:data.indexOf(e)
 
             }
         })
@@ -69,7 +70,7 @@ app.get('/breeds/:name', async (req, res) => {
 
         let gato = data.filter(e => e.name === name)
 
-        gato=gato.map(el=>{
+        gato = gato.map(el => {
             return {
                 id: el.id,
                 name: el.name,
@@ -85,7 +86,8 @@ app.get('/breeds/:name', async (req, res) => {
                 intelligence: el.intelligence,
                 socialNeeds: el.social_needs,
                 strangerFriendly: el.stranger_friendly,
-                img: el.image ?.url
+                img: el.image?.url,
+                number:data.indexOf(el)
             }
         })
         res.json(gato)
@@ -108,7 +110,7 @@ app.get('/breedsImg/:id', async (req, res) => {
 
         const img = data.map(elemet => {
             return elemet.url
-            
+
         })
         res.json(img)
     } catch (error) {
