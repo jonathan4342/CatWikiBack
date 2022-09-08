@@ -1,14 +1,17 @@
-const express = require('express');
-const morgan = require('morgan');
-const cors = require('cors');
+import express from 'express';
+import morgan from 'morgan';
+import cors from 'cors';
+import axios from 'axios';
+import dotenv from 'dotenv';
 
-const axios = require('axios');
+dotenv.config();
+
 const app = express()
 
 // settings
-app.set('port', 3001)
+app.set('port', process.env.PORT)
 
-// middlewares
+// middleware
 app.use(express.json())
 app.use(morgan('dev'))
 app.use(cors())
@@ -63,6 +66,7 @@ app.get('/breeds/:name', async (req, res) => {
     const {
         name
     } = req.params
+
     try {
         const {
             data
@@ -108,9 +112,8 @@ app.get('/breedsImg/:id', async (req, res) => {
             data
         } = await axios.get(`https://api.thecatapi.com/v1/images/search?breed_ids=${id}&limit=8`)
 
-        const img = data.map(elemet => {
-            return elemet.url
-
+        const img = data.map(element => {
+            return element.url
         })
         res.json(img)
     } catch (error) {
