@@ -1,8 +1,8 @@
-import express from 'express';
-import morgan from 'morgan';
-import cors from 'cors';
-import axios from 'axios';
-import dotenv from 'dotenv';
+const express=require( 'express');
+const morgan =require('morgan');
+const cors =require('cors');
+const axios  =require('axios');
+const dotenv  =require('dotenv');
 
 dotenv.config();
 
